@@ -307,7 +307,7 @@ public class StackCalcMain extends JFrame  {
 		buttonDelete.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
 			setDisplayContent(displaycontent.substring(0, displaycontent.length()-1));
 			display.setText(displaycontent);
-			//PLACEHOLDER
+			
 			
 			}});
 		buttonClearAll.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
@@ -316,7 +316,7 @@ public class StackCalcMain extends JFrame  {
 			stacklist.setText(stack.getStackList());
 			setDisplayContent("");
 			display.setText(displaycontent);
-			//PLACEHOLDER
+			
 			}});
 		
 		
@@ -346,7 +346,7 @@ public class StackCalcMain extends JFrame  {
 			setDisplayContent("");
 			stack.operation(4);
 			display.setText(stack.getOperationResult());
-			stack.makeStackList();
+			stack.makeStackList(); //used to correct for division by 0
 			stacklist.setText("Stack Contents: \n " + stack.getStackList());
 		}});
 		buttonSin.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
@@ -407,7 +407,6 @@ public class StackCalcMain extends JFrame  {
 		add(scroll, BorderLayout.LINE_START);//didnt need to add text area because its already added in by scrollpane
 		
 		setSize(600,600);
-		//stacklist.setText(stacklist.getText() + displaycontent); 
 		setTitle("Stack Calculator");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

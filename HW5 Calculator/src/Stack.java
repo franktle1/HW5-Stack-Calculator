@@ -108,7 +108,7 @@ public class Stack {
 		return this.stacklistString;
 	}
 	
-	public void makeStackList() { 
+	public void makeStackList() { //similarly the print method
 		setStackList("");
 		String temp = "";
 		if(isEmpty())
@@ -153,7 +153,7 @@ public class Stack {
 	public void operation(int choice) throws EmptyStackException { //this will perform all the mathematical operations from StackCalcMain
 		
 		switch(choice) {
-		case 1:
+		case 1: //add
 			if(!isEmpty() && top.getNext() != null) {
 				setOperationResult(Double.toString(peek() + top.getNext().getData()));
 			}
@@ -163,7 +163,7 @@ public class Stack {
 			}
 			 
 			break;
-		case 2:
+		case 2: //subtract
 			if(!isEmpty() && top.getNext() != null) {
 				setOperationResult(Double.toString(peek() - top.getNext().getData()));
 			}
@@ -172,7 +172,7 @@ public class Stack {
 				setOperationResult("");
 			}
 			break;
-		case 3:
+		case 3: //multiply
 			if(!isEmpty() && top.getNext() != null) {
 				setOperationResult(Double.toString(peek() * top.getNext().getData()));
 			}
@@ -181,7 +181,7 @@ public class Stack {
 				setOperationResult("");
 			}
 			break;
-		case 4:
+		case 4: //divide
 			if(!isEmpty() && top.getNext() != null) {
 				if(top.getNext().getData() != 0)
 					setOperationResult(Double.toString(peek() / top.getNext().getData()));
@@ -204,35 +204,87 @@ public class Stack {
 //			11.buttonEtoPowerX
 //			12.buttonExponentY
 //			13.buttonSquare
-		case 5:
-			//setOperationResult(); //gets the first two lines of the stack
+		case 5: //sine
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.sin(peek()))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		case 6:
-			//setOperationResult();
+		case 6: //cosine
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.cos(peek()))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		case 7:
-			//setOperationResult();
+		case 7: //tangent
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.tan(peek()))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		case 8:
-			//setOperationResult();
+		case 8://natural log 
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.log(peek()))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		case 9:
-			//setOperationResult();
+		case 9: //common log base10
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.log10(peek()))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		case 10:
-			//setOperationResult();
+		case 10: //square root
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.sqrt(peek()))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		case 11:
-			//setOperationResult();
+		case 11: //e^x
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.pow(Math.E, peek()))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		case 12:
-			//setOperationResult();
+		case 12: //x^y
+			if(!isEmpty() && top.getNext() != null) {
+				setOperationResult(Double.toString(Math.pow(top.getNext().getData(), peek())));
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+			}
 			break;
-		case 13:
-			//setOperationResult();
+		case 13: //x^2
+			if(!isEmpty()) {
+				setOperationResult(Double.toString(Math.pow(peek(), 2))); //gets top of stack, gets the sine, turns it into a string
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+				}
 			break;
-		
-		
 		
 		}
 	}
