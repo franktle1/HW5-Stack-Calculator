@@ -346,6 +346,8 @@ public class StackCalcMain extends JFrame  {
 			setDisplayContent("");
 			stack.operation(4);
 			display.setText(stack.getOperationResult());
+			stack.makeStackList();
+			stacklist.setText("Stack Contents: \n " + stack.getStackList());
 		}});
 		buttonSin.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");

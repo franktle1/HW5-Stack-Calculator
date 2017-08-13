@@ -187,6 +187,7 @@ public class Stack {
 					setOperationResult(Double.toString(peek() / top.getNext().getData()));
 				else {
 					JOptionPane.showMessageDialog(null, "Can't Divide by Zero! Only when pigs fly!");
+					top.setNext(top.next.getNext());
 					setOperationResult("");}
 			}
 			else {
