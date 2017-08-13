@@ -1,3 +1,5 @@
+//UPDATE: HOW DO I ENTER NEGATIVE NUMBERS? SHOULD I MAKE A NEW BUTTON TO ACCOUNT FOR THAT?
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -100,13 +102,11 @@ public class StackCalcMain extends JFrame  {
 		stacklist.setPreferredSize(new Dimension(150,700));
 		//stacklist.setLineWrap(true);
 		stacklist.setFont(new Font("Courier", Font.PLAIN, 20));
-		String temp = "Stack Contents: \n ---------------------------------------------------";
-		String temp2 = "Start";
-		for(int i = 0; i < 40; i++)
-			temp2 += i + "\n";
+		String temp = "Stack Contents: \n";
 		
 		
-		stacklist.setText(temp + "\n" + temp2);
+		
+		stacklist.setText(temp + " Stack is Empty");
 		stacklist.setEditable(false);
 		
 		
@@ -244,7 +244,8 @@ public class StackCalcMain extends JFrame  {
 			catch (StackFullException x ){
 				x.explainWhy();
 			}
-			
+			stack.makeStackList();
+			stacklist.setText("Stack Contents: \n " + stack.getStackList());
 			setDisplayContent("");
 			display.setText(displaycontent);
 			
@@ -260,12 +261,13 @@ public class StackCalcMain extends JFrame  {
 			catch (EmptyStackException x) {
 				JOptionPane.showMessageDialog(null, "Nothing in the stack");
 			}
+			stack.makeStackList();
 			setDisplayContent(topOfStack);
+			stacklist.setText("Stack Contents: \n " + stack.getStackList());
 			display.setText(displaycontent);
+			setDisplayContent("");
 			
 			
-			//display.setText(displaycontent);
-			//PLACEHOLDER
 			
 			}});
 		
@@ -276,7 +278,11 @@ public class StackCalcMain extends JFrame  {
 			
 			}});
 		buttonClearAll.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
-			
+			stack.destroy();
+			stack.makeStackList();
+			stacklist.setText(stack.getStackList());
+			setDisplayContent("");
+			display.setText(displaycontent);
 			//PLACEHOLDER
 			}});
 		
@@ -294,7 +300,9 @@ public class StackCalcMain extends JFrame  {
 		}});
 		
 		buttonSub.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(2);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonMul.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			
@@ -334,7 +342,7 @@ public class StackCalcMain extends JFrame  {
 		
 		
 		
-		String input = stacklist.getText();
+		//String input = stacklist.getText();
 		
 		
 		add(allButtons, BorderLayout.CENTER);
@@ -342,7 +350,7 @@ public class StackCalcMain extends JFrame  {
 		add(scroll, BorderLayout.LINE_START);//didnt need to add text area because its already added in by scrollpane
 		
 		setSize(600,600);
-		stacklist.setText(stacklist.getText() + displaycontent); 
+		//stacklist.setText(stacklist.getText() + displaycontent); 
 		setTitle("Stack Calculator");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

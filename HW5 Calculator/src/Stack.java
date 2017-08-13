@@ -99,20 +99,31 @@ public class Stack {
 		return (getTop().getData());
 	}
 	
-	public void print() { 
+	
+	private String stacklistString;
+	private void setStackList(String s) {
+		this.stacklistString = s;
+	}
+	public String getStackList() {
+		return this.stacklistString;
+	}
+	
+	public void makeStackList() { 
+		setStackList("");
+		String temp = "";
 		if(isEmpty())
-			System.out.println("Stack is Empty");
+			setStackList("Stack is Empty");
 		else {
 			Node curr = getTop();
-			System.out.print("--> " + curr.getData());
+			temp = "-->" + curr.getData() + "\n" ;
 			curr = curr.getNext();
 			
 			while(curr!= null) {
-				System.out.println("    "+ curr.getData());
-				curr.getNext();
+				temp+= "      "+ curr.getData() +"\n";
+				curr = curr.getNext();
 			}
-			
-			System.out.println("- - - - - - - - - - - - -");	
+			setStackList(temp);
+			//System.out.println("- - - - - - - - - - - - -");	
 		}
 		
 	}
