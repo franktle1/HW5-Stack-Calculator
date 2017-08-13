@@ -1,5 +1,6 @@
 //UPDATE: HOW DO I ENTER NEGATIVE NUMBERS? SHOULD I MAKE A NEW BUTTON TO ACCOUNT FOR THAT?
-
+//UPDATE: I'VE GOT TO MAKE SURE THAT WHEN PUSH IS CLICKED TWICE, OR IF DISPLAYCONTENT STRING IS EMPTY, NUMBERFORMAT IS HANDLED
+//UPDATE: NEED TO HANDLE THE EXCEPTIONS FOR PI AND E FOR THE HOMEWORK; TREAT THEM AS PUSHED TO CLEAR THE SCREEN
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -175,46 +176,65 @@ public class StackCalcMain extends JFrame  {
 //		********************************************************************
 		
 		
-		//WILL ADD TO A STRING AND A DELIMITER "," TO A TEXT FIELD
 		
 		button0.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 0;
 			display.setText(displaycontent);
 		
 		}});
 		button1.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 1;
 			display.setText(displaycontent);
 			}});
 		button2.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 2;
 			display.setText(displaycontent);
 			}});
 		button3.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 3;
 			display.setText(displaycontent);
 			}});
 		button4.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 4;
 			display.setText(displaycontent);
 			}});
 		button5.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 5;
 			display.setText(displaycontent);
 			}});
 		button6.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 6;
 			display.setText(displaycontent);
 			}});
 		button7.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 7;
 			display.setText(displaycontent);	
 			}});
 		button8.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 8;
 			display.setText(displaycontent);
 			}});
 		button9.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("2.718281828459") || displaycontent.contains ("3.141592653589")) 
+				setDisplayContent("");
 			displaycontent += 9;
 			display.setText(displaycontent);
 			}});
@@ -222,6 +242,7 @@ public class StackCalcMain extends JFrame  {
 			setDisplayContent(""); //need to make a second variable to store values in pop
 			displaycontent += 2.718281828459;
 			display.setText(displaycontent);	
+			
 			}});
 		buttonPI.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
@@ -229,8 +250,17 @@ public class StackCalcMain extends JFrame  {
 			display.setText(displaycontent);
 			}});
 		buttonDECIMAL.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
-			displaycontent += ".";
-			display.setText(displaycontent);
+			if(displaycontent.contains("."))
+					JOptionPane.showMessageDialog(null, "One Decimal per number please!");
+			else {
+				if(displaycontent.equals("")) {
+					setDisplayContent("0.");
+				}
+				else {
+				displaycontent += ".";
+				}
+				display.setText(displaycontent);
+			}
 			}});
 		
 //		********CONTROL BUTTONS******************
@@ -238,6 +268,9 @@ public class StackCalcMain extends JFrame  {
 		
 		
 		buttonPush.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.equals(""))
+					JOptionPane.showMessageDialog(null, "Please enter a value");
+			else {
 			try {
 			stack.push(Double.parseDouble(getDisplayContent()));
 			}
@@ -248,8 +281,8 @@ public class StackCalcMain extends JFrame  {
 			stacklist.setText("Stack Contents: \n " + stack.getStackList());
 			setDisplayContent("");
 			display.setText(displaycontent);
+			}//else
 			
-			//PLACEHOLDER
 			
 			}});
 		
@@ -305,10 +338,14 @@ public class StackCalcMain extends JFrame  {
 			display.setText(stack.getOperationResult());
 		}});
 		buttonMul.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(3);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonDiv.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(4);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonSin.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			

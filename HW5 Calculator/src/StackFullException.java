@@ -1,9 +1,10 @@
+import javax.swing.JOptionPane;
 
 public class StackFullException extends Exception {
 	public StackFullException() {
 		
 	}
 	public void explainWhy() {
-		System.out.println("Stack is full!");
+		JOptionPane.showMessageDialog(null, "Stack is full!");
 	}
 }

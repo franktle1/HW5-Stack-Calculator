@@ -151,25 +151,48 @@ public class Stack {
 	
 	private String operationResult = new String("");
 	public void operation(int choice) throws EmptyStackException { //this will perform all the mathematical operations from StackCalcMain
+		
 		switch(choice) {
 		case 1:
 			if(!isEmpty() && top.getNext() != null) {
 				setOperationResult(Double.toString(peek() + top.getNext().getData()));
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "Operation failed. Need inputs.");
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
 				setOperationResult("");
 			}
 			 //gets the first two lines of the stack
 			break;
 		case 2:
-			setOperationResult(Double.toString(peek() - top.getNext().getData()));
+			if(!isEmpty() && top.getNext() != null) {
+				setOperationResult(Double.toString(peek() - top.getNext().getData()));
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+			}
 			break;
 		case 3:
-			setOperationResult(Double.toString(peek() * top.getNext().getData())); //gets the first two lines of the stack
+			if(!isEmpty() && top.getNext() != null) {
+				setOperationResult(Double.toString(peek() * top.getNext().getData()));
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+			}
 			break;
 		case 4:
-			setOperationResult(Double.toString(peek() / top.getNext().getData()));
+			if(!isEmpty() && top.getNext() != null) {
+				if(top.getNext().getData() != 0)
+					setOperationResult(Double.toString(peek() / top.getNext().getData()));
+				else {
+					JOptionPane.showMessageDialog(null, "Can't Divide by Zero! Only when pigs fly!");
+					setOperationResult("");}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
+				setOperationResult("");
+			};
 			break;
 		case 5:
 			//setOperationResult(); //gets the first two lines of the stack
