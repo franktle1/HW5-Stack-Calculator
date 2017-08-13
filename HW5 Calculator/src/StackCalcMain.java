@@ -61,6 +61,13 @@ public class StackCalcMain extends JFrame  {
 		JButton buttonE = new JButton("e"); //about 2.7 ish
 		JButton buttonPI = new JButton("π"); //about 3.14
 		JButton buttonDECIMAL = new JButton(".");
+		JButton buttonNegate = new JButton("(-)");
+		
+		//hover button option
+		buttonNegate.setToolTipText("<HTML> <font face = \"Serif\" color = #000000 size = 20><span style = \"background-color:#ffff00\">  "
+				+ "<b>This is the Negation Button.</b></span></font> </HTML>");
+		
+		
 		
 		//MATH OPERATIONS x 13
 		JButton buttonAdd = new JButton("+");
@@ -77,8 +84,12 @@ public class StackCalcMain extends JFrame  {
 		JButton buttonExponentY = new JButton("x^y");
 		JButton buttonSquare = new JButton("x^2");
 		
-		
-		
+		//hover button option
+		buttonSub.setToolTipText("<HTML> <font face = \"Serif\" color = #000000 size = 6><span style = \"background-color:#ffff00\">  "
+				+ "<b>If you are looking for the negation sign, <br> look no further! "
+				+ "It is right next to the <br> Push Button! </b></span></font> </HTML>");
+		buttonLogBase10.setToolTipText("<HTML> <font face = \"Serif\" color = #000000 size = 6><span style = \"background-color:#ffff00\">  "
+				+ "<b>Do you mean these?</b><br><img src = \"https://irp-cdn.multiscreensite.com/3153f65a/import/base/dms3rep/multi/mobile/Satellite_261542398.png\" ></span></font> </HTML>");
 		
 		
 		//CALC CONTROL BUTTONS x4	
@@ -122,7 +133,7 @@ public class StackCalcMain extends JFrame  {
 		JPanel row5 = new JPanel();
 		row5.setLayout(new GridLayout(1,5));
 		JPanel row6 = new JPanel();
-		row6.setLayout(new GridLayout(1,5));
+		row6.setLayout(new GridLayout(1,6));
 		
 		row1.add(buttonNaturalLog);
 		row1.add(buttonLogBase10);
@@ -157,8 +168,10 @@ public class StackCalcMain extends JFrame  {
 		row6.add(buttonPI);
 		row6.add(buttonDECIMAL);
 		row6.add(button0);
+		row6.add(buttonNegate);
 		row6.add(buttonPush);
 		row6.add(buttonDiv);
+		
 		
 		JPanel allButtons = new JPanel();
 		allButtons.setLayout(new GridLayout(6,1));
@@ -262,6 +275,22 @@ public class StackCalcMain extends JFrame  {
 				display.setText(displaycontent);
 			}
 			}});
+		buttonNegate.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
+			if(displaycontent.contains("-"))
+					JOptionPane.showMessageDialog(null, "One negation per number please! Sheesh.");
+			else {
+				if(displaycontent.equals("")) {
+					setDisplayContent("-");
+					display.setText(displaycontent);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "The negation sign doesn't go there silly!");
+				}
+				
+			}
+			}});
+		
+		
 		
 //		********CONTROL BUTTONS******************
 //		*****************************************
