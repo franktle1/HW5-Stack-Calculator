@@ -425,7 +425,7 @@ public class StackCalcMain extends JFrame  {
 			display.setText(stack.getOperationResult());
 		}});
 		
-		
+		buttonDiv.setToolTipText("<html><b>Dividing by Zero will remove 0 from stack!</b></html>");
 		
 		
 		//String input = stacklist.getText();

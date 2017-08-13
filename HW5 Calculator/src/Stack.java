@@ -50,23 +50,23 @@ public class Stack {
 		stackSize--;
 	}
 	
-	public void setTop(Node top) {
+	private void setTop(Node top) {
 		this.top = top;
 	}
 	
-	public Node getTop() {
+	private Node getTop() {
 		return this.top;
 	}
 	
-	public boolean isEmpty() {
+	private boolean isEmpty() {
 		return (getTop() == null);
 	}
 	
-	public boolean isFull() { //when you encounter an emminent stack overflow
+	private boolean isFull() { //when you encounter an emminent stack overflow
 		return (stackSize == maxStackSize);
 	}
 	
-	public int size() { //stackSize goes up or down when things are popped or pushed
+	private int size() { //stackSize goes up or down when things are popped or pushed
 		return this.stackSize;
 	}
 	
@@ -195,15 +195,6 @@ public class Stack {
 				setOperationResult("");
 			};
 			break;
-//			5.buttonSin
-//			6.buttonCos
-//			7.buttonTan
-//			8.buttonNaturalLog
-//			9.buttonLogBase10
-//			10.buttonSqrt
-//			11.buttonEtoPowerX
-//			12.buttonExponentY
-//			13.buttonSquare
 		case 5: //sine
 			if(!isEmpty()) {
 				setOperationResult(Double.toString(Math.sin(peek()))); //gets top of stack, gets the sine, turns it into a string
