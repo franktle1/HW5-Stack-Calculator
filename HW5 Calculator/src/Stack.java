@@ -161,7 +161,7 @@ public class Stack {
 				JOptionPane.showMessageDialog(null, "Operation failed. Need more inputs.");
 				setOperationResult("");
 			}
-			 //gets the first two lines of the stack
+			 
 			break;
 		case 2:
 			if(!isEmpty() && top.getNext() != null) {
@@ -194,10 +194,40 @@ public class Stack {
 				setOperationResult("");
 			};
 			break;
+//			5.buttonSin
+//			6.buttonCos
+//			7.buttonTan
+//			8.buttonNaturalLog
+//			9.buttonLogBase10
+//			10.buttonSqrt
+//			11.buttonEtoPowerX
+//			12.buttonExponentY
+//			13.buttonSquare
 		case 5:
 			//setOperationResult(); //gets the first two lines of the stack
 			break;
 		case 6:
+			//setOperationResult();
+			break;
+		case 7:
+			//setOperationResult();
+			break;
+		case 8:
+			//setOperationResult();
+			break;
+		case 9:
+			//setOperationResult();
+			break;
+		case 10:
+			//setOperationResult();
+			break;
+		case 11:
+			//setOperationResult();
+			break;
+		case 12:
+			//setOperationResult();
+			break;
+		case 13:
 			//setOperationResult();
 			break;
 		
@@ -220,7 +250,7 @@ public class Stack {
 //	12.buttonExponentY
 //	13.buttonSquare
 	
-	public void setOperationResult(String s) {
+	private void setOperationResult(String s) {
 		this.operationResult = s;
 	}
 	public String getOperationResult() {

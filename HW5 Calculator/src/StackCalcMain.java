@@ -348,32 +348,50 @@ public class StackCalcMain extends JFrame  {
 			display.setText(stack.getOperationResult());
 		}});
 		buttonSin.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(5);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonCos.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(6);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonTan.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(7);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonNaturalLog.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(8);
+			display.setText(stack.getOperationResult());
 			
 		}});
 		buttonLogBase10.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(9);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonSqrt.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(10);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonEtoPowerX.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(11);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonExponentY.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(12);
+			display.setText(stack.getOperationResult());
 		}});
 		buttonSquare.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
-			
+			setDisplayContent("");
+			stack.operation(13);
+			display.setText(stack.getOperationResult());
 		}});
 		
 		
