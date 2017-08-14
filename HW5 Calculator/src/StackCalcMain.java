@@ -1,6 +1,8 @@
 //UPDATE: HOW DO I ENTER NEGATIVE NUMBERS? SHOULD I MAKE A NEW BUTTON TO ACCOUNT FOR THAT?
 //UPDATE: I'VE GOT TO MAKE SURE THAT WHEN PUSH IS CLICKED TWICE, OR IF DISPLAYCONTENT STRING IS EMPTY, NUMBERFORMAT IS HANDLED
 //UPDATE: NEED TO HANDLE THE EXCEPTIONS FOR PI AND E FOR THE HOMEWORK; TREAT THEM AS PUSHED TO CLEAR THE SCREEN
+//UPDATE: MAKE IT SO THAT WHATEVER IS DISPLAYED ON THE SCREEN IS ABLE TO BE PUSHED
+//OPERATIONS FOR EXAMPLE: follow template for Add. addAction Button
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -358,71 +360,84 @@ public class StackCalcMain extends JFrame  {
 		buttonAdd.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(1);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		
 		buttonSub.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(2);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		buttonMul.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(3);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		buttonDiv.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(4);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);;
 			stack.makeStackList(); //used to correct for division by 0
 			stacklist.setText("Stack Contents: \n " + stack.getStackList());
 		}});
 		buttonSin.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(5);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		buttonCos.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(6);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		buttonTan.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(7);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		buttonNaturalLog.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(8);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);;
 			
 		}});
 		buttonLogBase10.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(9);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);;
 		}});
 		buttonSqrt.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(10);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);;
 		}});
 		buttonEtoPowerX.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(11);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		buttonExponentY.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(12);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);;
 		}});
 		buttonSquare.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e) {
 			setDisplayContent("");
 			stack.operation(13);
-			display.setText(stack.getOperationResult());
+			setDisplayContent(stack.getOperationResult());
+			display.setText(displaycontent);
 		}});
 		
 		buttonDiv.setToolTipText("<html><b>Dividing by Zero will remove 0 from stack!</b></html>");
